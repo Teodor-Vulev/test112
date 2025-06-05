@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apisix
+  namespace: argocd   # This must match where Argo CD is installed
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:Teodor-Vulev/test112.git
+    targetRevision: HEAD  # Use `helm search repo apiseven/apisix --versions` to confirm
+    path: manifests/apisix
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apisix
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

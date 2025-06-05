@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apisix-dashboard
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.apiseven.com
+    chart: apisix-dashboard
+    targetRevision: "0.8.2"  # Use `helm search repo apiseven/apisix-dashboard --versions` to confirm
+    helm:
+      parameters:
+        - name: service.type
+          value: NodePort
+        - name: config.conf.etcd.endpoints[0]
+          value: http://apisix-etcd.apisix.svc.cluster.local:2379
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apisix-dashboard
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

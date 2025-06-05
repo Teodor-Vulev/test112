@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: init
+  namespace: argocd  # namespace where Argo CD is installed
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:Teodor-Vulev/test112.git
+    targetRevision: HEAD
+    path: app  # path to folder inside the repo
+    # Uncomment below if the folder is a Helm chart
+    # helm:
+    #   valueFiles:
+    #     - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
