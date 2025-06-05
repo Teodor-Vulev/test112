@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps-root
-  namespace: argocd
+  name: bare-minimum-api
+  namespace: argocd  # or whatever namespace Argo CD is in
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-org/your-repo.git
-    targetRevision: HEAD
-    path: manifests/bare-minimum-api   # 👈 this is the folder with the app YAMLs
+    repoURL: https://github.com/Teodor-Vulev/test112.git
+    targetRevision: main
+    path: manifests/bare-minimum-api
   destination:
     server: https://kubernetes.default.svc
     namespace: default
