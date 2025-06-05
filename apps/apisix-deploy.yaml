@@ -11,7 +11,7 @@ spec:
     targetRevision: "2.10"  # or latest version
     path: manifests/apisix
     helm:
-      skipCrds: false  # <--- IMPORTANT
+      skipCrds: true  # <--- IMPORTANT
       parameters:
         - name: gateway.type
           value: NodePort
@@ -19,6 +19,8 @@ spec:
           value: "true"
         - name: ingress-controller.config.apisix.serviceNamespace
           value: apisix
+        - name: dashboard.enabled
+          value: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: apisix
