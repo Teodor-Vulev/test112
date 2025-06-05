@@ -11,6 +11,7 @@ spec:
     targetRevision: "2.10"  # or latest version
     path: manifests/apisix
     helm:
+      skipCrds: false  # <--- IMPORTANT
       parameters:
         - name: gateway.type
           value: NodePort
