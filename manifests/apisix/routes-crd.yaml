@@ -2,6 +2,7 @@ apiVersion: apisix.apache.org/v2
 kind: ApisixRoute
 metadata:
   name: api-routes
+  namespace: apisix
 spec:
   http:
     - name: route-1
