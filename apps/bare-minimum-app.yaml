@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: hgit@github.com:Teodor-Vulev/test112.git
+    repoURL: https://github.com/your-org/your-repo.git
     targetRevision: HEAD
     path: manifests/bare-minimum-api   # 👈 this is the folder with the app YAMLs
   destination:
