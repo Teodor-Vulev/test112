@@ -6,9 +6,18 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:Teodor-Vulev/test112.git
-    targetRevision: HEAD  # Use `helm search repo apiseven/apisix --versions` to confirm
+    repoURL: https://charts.apiseven.com
+    chart: apisix
+    targetRevision: "2.10"  # or latest version
     path: manifests/apisix
+    helm:
+      parameters:
+        - name: gateway.type
+          value: NodePort
+        - name: ingress-controller.enabled
+          value: "true"
+        - name: ingress-controller.config.apisix.serviceNamespace
+          value: apisix
   destination:
     server: https://kubernetes.default.svc
     namespace: apisix

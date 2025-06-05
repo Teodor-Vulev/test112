@@ -9,6 +9,7 @@ spec:
     repoURL: https://charts.apiseven.com
     chart: apisix-dashboard
     targetRevision: "0.8.2"  # Use `helm search repo apiseven/apisix-dashboard --versions` to confirm
+    path: manifests/apisix
     helm:
       parameters:
         - name: service.type
