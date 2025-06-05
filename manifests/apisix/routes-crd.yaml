@@ -1,4 +1,4 @@
-apiVersion: apisix.apache.org/v2
+apiVersion: apisix.apache.org/v2beta3
 kind: ApisixRoute
 metadata:
   name: api-routes
@@ -12,6 +12,7 @@ spec:
       backends:
         - serviceName: bare-minimum-api-v1
           servicePort: 8080
+          namespace: default
     - name: route-2
       match:
         paths:
@@ -19,6 +20,7 @@ spec:
       backends:
         - serviceName: bare-minimum-api-v2
           servicePort: 8080
+          namespace: default
     - name: route-3
       match:
         paths:
@@ -26,3 +28,4 @@ spec:
       backends:
         - serviceName: bare-minimum-api-v3
           servicePort: 8080
+          namespace: default

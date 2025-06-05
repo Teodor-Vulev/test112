@@ -11,15 +11,19 @@ spec:
     targetRevision: "2.10"  # or latest version
     path: manifests/apisix
     helm:
-      skipCrds: true  # <--- IMPORTANT
+      skipCrds: false  # <--- IMPORTANT
       parameters:
-        - name: gateway.type
+        - name: service.type
           value: NodePort
         - name: ingress-controller.enabled
           value: "true"
         - name: ingress-controller.config.apisix.serviceNamespace
           value: apisix
+        - name: ingress-controller.config.apisix.adminAPIVersion
+          value: $ADMIN_API_VERSION
         - name: dashboard.enabled
+          value: "true"
+        - name: --set ingress-controller.installCRDs
           value: "true"
   destination:
     server: https://kubernetes.default.svc
