@@ -16,7 +16,7 @@ spec:
       - name: whoami-3
         image: traefik/whoami  # Your Docker image
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 
 ---
 
@@ -30,6 +30,6 @@ spec:
     app: whoami-3
   ports:
   - protocol: TCP
-    port: 8080
-    targetPort: 8080
+    port: 80
+    targetPort: 80
   type: ClusterIP
