@@ -10,18 +10,18 @@ spec:
           - /v1
       backends:
         - serviceName: whoami-1
-          servicePort: 8080
+          servicePort: 80
     - name: route-2
       match:
         paths:
           - /v2
       backends:
         - serviceName: whoami-2
-          servicePort: 8080
+          servicePort: 80
     - name: route-3
       match:
         paths:
           - /v3
       backends:
         - serviceName: whoami-3
-          servicePort: 8080
+          servicePort: 80
