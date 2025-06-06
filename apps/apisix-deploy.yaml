@@ -19,11 +19,9 @@ spec:
           value: "true"
         - name: ingress-controller.config.apisix.serviceNamespace
           value: apisix
-        - name: ingress-controller.config.apisix.adminAPIVersion
-          value: $ADMIN_API_VERSION
         - name: dashboard.enabled
           value: "true"
-        - name: --set ingress-controller.installCRDs
+        - name: ingress-controller.installCRDs
           value: "true"
   destination:
     server: https://kubernetes.default.svc
