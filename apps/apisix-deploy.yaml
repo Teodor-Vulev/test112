@@ -9,11 +9,11 @@ spec:
     repoURL: https://charts.apiseven.com
     chart: apisix
     targetRevision: "2.10"  # or latest version
-    path: manifests/apisix
+    # path: manifests/apisix
     helm:
       skipCrds: false  # <--- IMPORTANT
       parameters:
-        - name: service.type
+        - name: gateway.type
           value: NodePort
         - name: ingress-controller.enabled
           value: "true"
