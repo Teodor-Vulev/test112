@@ -12,6 +12,10 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: default
+  info:
+  - name: "Example:"
+    value: >-
+      https://example.com
   syncPolicy:
     automated:
       prune: true

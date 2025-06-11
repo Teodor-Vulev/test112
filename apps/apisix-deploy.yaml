@@ -23,6 +23,10 @@ spec:
           value: "true"
         - name: ingress-controller.installCRDs
           value: "true"
+        - name: apisix.plugins[0]
+          value: prometheus
+        - name: apisix.config.enable_prometheus
+          value: "true"          
   destination:
     server: https://kubernetes.default.svc
     namespace: apisix
